@@ -1,3 +1,9 @@
+things to do:
+cleaner way to for cpu load on first run?
+maybe set interval init callback, or use "loading" state page
+rechart - maximum y-axis of 2? x-axis labels?
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -4,10 +4,12 @@ const port = 3000;
 
 const os = require("os");
 
-app.get('/', (req, res) => {
+app.get('/load', (req, res) => {
   const cpus = os.cpus().length
   const loadAverage = os.loadavg()[0] / cpus;
-  res.send(`Hello Leslie ${loadAverage}`);
+
+  console.log(`polling: ${loadAverage}`);
+  res.send(loadAverage.toString());
 })
 
 app.listen(port, () => {
