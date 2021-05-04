@@ -13,5 +13,5 @@ app.get('/load', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Polling service listening at http://localhost:${port}`)
 })
