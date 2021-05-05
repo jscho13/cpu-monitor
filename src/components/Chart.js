@@ -22,8 +22,6 @@ const Chart = ({ loadHistory }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart
-        width={500}
-        height={300}
         data={chartData}
         margin={{
           top: 5,

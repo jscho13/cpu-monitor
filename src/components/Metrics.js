@@ -2,9 +2,9 @@ import React from 'react';
 
 const Metrics = ({cpuLoad, highLoads, normalLoads}) => {
 	const timeFragment = (times) => {
-		return times.map((item) => {
+		return times.map((item, idx) => {
 			return (
-				<li>
+				<li key={`${idx}${item.time}`}>
 					<div>{item.time}</div>
 				</li>
 			)

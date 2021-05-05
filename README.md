@@ -74,3 +74,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+Packaging - Does it run? Is it easy to run? Readme?
+Readability - Code Style and Line readability
+Architecture - Code Structure, use of tools and libraries
+Efficiency - performant, efficient
+UI - product requirements met, User Experience
+Testing - are there tests? Appropriate tests?
+
+ 
+
+## Engineering requirements:
+- DONE The back-end service does not need to persist data.
+- The alerting logic in your application should have tests.
+- Please write up a small explanation of how you would extend or improve your application design if you were building this for production.
+
+
+TIME SPENT 
+7 hr

@@ -13,7 +13,8 @@ const initalState = () => {
   return initialTimes;
 }
 
-const App = () => {
+const App = ({ pollInterval = 10000 }) => {
+  const [pollCount, setPollCount] = useState(0);
   const [cpuLoad, setCpuLoad] = useState(-1);
   const [loadHistory, setLoadHistory] = useState(initalState());
   const [isHighLoad, setIsHighLoad] = useState(false);
@@ -25,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     // To emulate high stress: https://cpux.net/cpu-stress-test-online
-    // and set 15 threads at 50%
+    // and set 30 threads at 70%
     const fetchLoad = () => {
       fetch('/load')
       .then(response => { return response.json() })
@@ -35,8 +36,8 @@ const App = () => {
         newHistory.unshift(data);
         newHistory.pop();
         setLoadHistory(newHistory);
-
         setCpuLoad(data);
+        setPollCount((p) => p+1);
       })
       .catch(err => { console.log(err) });
     }
@@ -44,7 +45,7 @@ const App = () => {
     // Fetches cpu load on first render so we don't have an empty chart
     if (cpuLoad === -1) fetchLoad();
 
-    const poll = setInterval(() => fetchLoad(), 5000);
+    const poll = setInterval(() => fetchLoad(), pollInterval);
     return () => clearInterval(poll);
     // eslint-disable-next-line
   }, []);
@@ -56,19 +57,19 @@ const App = () => {
     const newHLCount = thresholdPassed ? highLoadCounter+1 : 0;
     setHighLoadCounter(newHLCount);
     // should be 12, setting it to 3 for testing purposes
-    if (newHLCount >= 3 && !isHighLoad) { 
+    if (newHLCount >= 12 && !isHighLoad) { 
       setIsHighLoad(true);
       setHighLoads([...highLoads, { time: currentTime }]);
     }
 
     const newNLCount = !thresholdPassed ? normalLoadCounter+1 : 0;
     setNormalLoadCounter(newNLCount);
-    if (newNLCount >= 3 && isHighLoad) {
+    if (newNLCount >= 12 && isHighLoad) {
       setIsHighLoad(false);
       setNormalLoads([...normalLoads, { time: currentTime }]);
     }
     // eslint-disable-next-line
-  }, [cpuLoad]);
+  }, [pollCount]);
 
   return (
     <AppContainer>
