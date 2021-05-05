@@ -45,7 +45,7 @@ const App = ({ pollInterval = 10000 }) => {
     // Fetches cpu load on first render so we don't have an empty chart
     if (cpuLoad === -1) fetchLoad();
 
-    const poll = setInterval(() => fetchLoad(), 10000);
+    const poll = setInterval(() => fetchLoad(), pollInterval);
     return () => clearInterval(poll);
     // eslint-disable-next-line
   }, []);
