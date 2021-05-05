@@ -8,9 +8,7 @@ Application with a client that pings a simple backend service for CPU load data
 '--------' vitals '--------'
 ```
 
-<video controls="true" width="100%" allowfullscreen="true">
-  <source src="load-cpu.mp4" type="video/mp4">
-</video>
+<img src="load-sample.gif" />
 
 
 ## Table of Contents
