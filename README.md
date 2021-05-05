@@ -14,8 +14,8 @@ Application with a client that pings a simple backend service for CPU load data
 ## Table of Contents
 
 - [Setup](#Setup)
-- [Technology](#technology)
-- [License](#license)
+- [Improvements](#Improvements)
+- [License](#License)
 
 
 ## Setup
@@ -39,7 +39,7 @@ $ npm run start:fe
 ```
 
 
-## Improvements / Notes
+## Improvements
 - Overall this was a super fun app to work on!
 - For fetching cpu data we're using a `setInterval` and cleaning up whenever the component unmounts. In a real-world environment where it could take longer than expected to get CPU load, constantly fetching at an interval can cause [congestion](https://weblogs.asp.net/bleroy/setinterval-is-moderately-evil). `setTimeout` is a way to mitigate this.
 - To ship this for production we would need to do a number of significant changes. Right now we poll a local for data, but in the real world the responsibilties would be switched. Clients typically install a script we provide. This script pushes relevant data to our servers, and from there present it on a clean UI. To validate and tie users to requests we could provide an APP_ID or USER_ID.
