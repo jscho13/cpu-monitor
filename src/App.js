@@ -13,7 +13,7 @@ const initalState = () => {
   return initialTimes;
 }
 
-const App = ({ pollInterval = 10000 }) => {
+const App = ({ pollInterval = 4000 }) => {
   const [pollCount, setPollCount] = useState(0);
   const [cpuLoad, setCpuLoad] = useState(-1);
   const [loadHistory, setLoadHistory] = useState(initalState());
